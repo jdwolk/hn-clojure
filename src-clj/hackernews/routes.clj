@@ -2,9 +2,11 @@
   (:gen-class)
   (:use compojure.core [hiccup.middleware :only (wrap-base-url)])
   (:require [compojure.route           :as route]
-            [compojure.handler         :as handler]
+            ;[compojure.handler         :as handler]
             [compojure.response        :as response]
+            [ring.middleware.defaults  :refer [wrap-defaults site-defaults]]
             [ring.adapter.jetty        :as jetty]
+            [ring.util.response :refer :all]
             [environ.core              :refer [env]]
             [hackernews.controllers.stories :as stories]
             [hackernews.controllers.users   :as users]))
@@ -21,7 +23,9 @@
   "This is the handler for our routes. We wrap the base url to
   Use Hiccup."
   []
-  (-> (handler/site main-routes)
+  ;(-> (handler/site main-routes)
+  ;(-> (rap-defaults main-routes site-defaults)
+  (-> (wrap-defaults main-routes site-defaults)
       (wrap-base-url)))
 
 (defn -main
