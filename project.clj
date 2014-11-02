@@ -6,10 +6,11 @@
                  ; Backend
                  [ring/ring-jetty-adapter "1.3.1"]
                  [environ "0.5.0"]
-                 [compojure "1.1.6"]
+                 [compojure "1.2.1"]
                  [clj-http "1.0.0"]
                  [cheshire "5.3.1"]
                  [hiccup "1.0.4"]
+                 [ring/ring-defaults "0.1.2"]
                  ; Frontend
                  [org.clojure/clojurescript "0.0-2371"]
                  [reagent "0.4.2"]]
